@@ -1,5 +1,5 @@
 require 'trello'
-
+require 'pry'
 module PivotalToTrello
   # Interface to the Trello API.
   class TrelloWrapper
@@ -25,6 +25,19 @@ module PivotalToTrello
 
         pivotal_story.notes.all.each do |note|
           card.add_comment("[#{note.author}] #{note.text.to_s.strip}") unless note.text.to_s.strip.empty?
+        end
+
+        tasks = pivotal_story.tasks.all
+        if !tasks.empty?
+          checklist = Trello::Checklist.create(
+            :name     => 'Tasks',
+            :board_id => card.board_id
+          )
+          card.add_checklist(checklist)
+          tasks.each do |task|
+            puts " Creating task '#{task.description}'"
+            checklist.add_item(task.description, task.complete)
+          end
         end
 
         card
@@ -74,7 +87,11 @@ module PivotalToTrello
 
     # Adds the given label to the card.
     def add_label(card, label)
-      card.add_label(label) unless card.labels.collect { |label| label.color }.include?(label)
+      begin
+        card.add_label(label) unless card.labels.collect { |label| label.color }.include?(label)
+      rescue => e
+        puts e.inspect
+      end
     end
 
     # Returns a list of colors that can be used to label cards.
