@@ -89,8 +89,8 @@ module PivotalToTrello
     def add_label(card, label)
       begin
         card.add_label(label) unless card.labels.collect { |label| label.color }.include?(label)
-      rescue => e
-        puts e.inspect
+      rescue => ex
+        puts "Label add error: #{ex.inspect}"
       end
     end
 

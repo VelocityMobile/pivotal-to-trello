@@ -16,6 +16,7 @@ module PivotalToTrello
 
       puts "\nBeginning import..."
       pivotal.stories(options.pivotal_project_id).each do |story|
+        puts "Fetching story: #{story.name}"
         list_id = label = nil
 
         if story.current_state == 'accepted'
@@ -53,8 +54,12 @@ module PivotalToTrello
         end
 
         if list_id
-          card = trello.create_card(list_id, story)
-          trello.add_label(card, label) unless label.nil?
+          begin
+            card = trello.create_card(list_id, story)
+            trello.add_label(card, label) if label.present?
+          rescue => ex
+            puts "Card create error: #{ex.inspect}"
+          end
         end
       end
     end
