@@ -245,7 +245,8 @@ Authors & license
 *Original gem:*
 
 Dave Perrett :: hello@daveperrett.com :: [@daveperrett](http://twitter.com/daveperrett)
-License: [LICENSE.txt](https://github.com/kirs/pivotal-to-trello/blob/master/LICENSE.txt)
+
+Original license: [LICENSE.txt](https://github.com/kirs/pivotal-to-trello/blob/master/LICENSE.txt)
 
 *This fork:*
 
