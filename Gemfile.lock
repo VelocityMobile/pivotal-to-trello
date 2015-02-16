@@ -1,13 +1,3 @@
-PATH
-  remote: /Users/kir/Projects/opensource/ruby-trello
-  specs:
-    ruby-trello (1.1.1)
-      activemodel (>= 3.2.0)
-      addressable (~> 2.3)
-      json
-      oauth (~> 0.4.5)
-      rest-client (~> 1.6.7)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -108,6 +98,12 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.1)
+    ruby-trello (1.1.1)
+      activemodel (>= 3.2.0)
+      addressable (~> 2.3)
+      json
+      oauth (~> 0.4.5)
+      rest-client (~> 1.6.7)
     safe_yaml (1.0.4)
     slop (3.6.0)
     thread_safe (0.3.4)
@@ -124,4 +120,4 @@ DEPENDENCIES
   pry
   rdoc (>= 4.1.1)
   rspec (>= 2.14.1)
-  ruby-trello!
+  ruby-trello (>= 1.1.0)
