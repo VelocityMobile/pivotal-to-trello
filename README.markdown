@@ -246,7 +246,7 @@ Authors
 
 Dave Perrett :: hello@daveperrett.com :: [@daveperrett](http://twitter.com/daveperrett)
 
-This fork:
+*This fork:*
 
 [Kir Shatrov](http://github.com/kirs)
 
