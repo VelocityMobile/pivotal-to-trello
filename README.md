@@ -1,18 +1,30 @@
 pivotal-to-trello [![Build Status](https://travis-ci.org/recurser/pivotal-to-trello.png?branch=master)](https://travis-ci.org/recurser/pivotal-to-trello)
 =================
 
-This gem provides a command for exporting a [Pivotal Tracker](https://www.pivotaltracker.com/) project to [Trello](https://trello.com/).
+This project of fork of [pivotal-trello gem](https://github.com/recurser/pivotal-to-trello) though it includes lots of fixes and it's done as a standalone ruby project, not a gem.
+
+Fixes my fork includes:
+
+* Bulk migration won't stop if exception raised
+* SSL enabled for Pivotal API: https://github.com/recurser/pivotal-to-trello/pull/3
+* Tasks migration added: https://github.com/recurser/pivotal-to-trello/pull/1
+
+This project provides a script for exporting a [Pivotal Tracker](https://www.pivotaltracker.com/) project to [Trello](https://trello.com/).
 
 Getting started
 ---------------
 
 1. Install the gem:
 
-        > gem install pivotal-to-trello
+        > git clone git@github.com/kirs/pivotal-to-trello.git
 
-2. Run the importer:
+2. Install dependecies:
 
-        > pivotal-to-trello import --trello-key TRELLO_API_KEY --trello-token TRELLO_TOKEN --pivotal-token PIVOTAL_TOKEN
+        > bundle install
+
+3. Run the importer:
+
+        > bin/pivotal-to-trello import --trello-key TRELLO_API_KEY --trello-token TRELLO_TOKEN --pivotal-token PIVOTAL_TOKEN
 
   See the [Obtaining API credentials](#obtaining-api-credentials) section for details on how to obtain these credentials.
 
@@ -20,7 +32,7 @@ Getting started
 
   For example :
 
-        > pivotal-to-trello import --trello-key TRELLO_API_KEY --trello-token TRELLO_TOKEN --pivotal-token PIVOTAL_TOKEN
+        > bin/pivotal-to-trello import --trello-key TRELLO_API_KEY --trello-token TRELLO_TOKEN --pivotal-token PIVOTAL_TOKEN
 
         Which Pivotal project would you like to export?
         1. Android App
@@ -226,35 +238,16 @@ See the [Trello documentation](https://trello.com/docs/gettingstarted/index.html
 
 The Pivotal Tracker token can be found at the bottom of your [Pivotal profile page](https://www.pivotaltracker.com/profile).
 
-Change history
---------------
 
-* **Version 0.1.0 (2014-01-13)** : Initial version.
-
-Bug Reports
------------
-
-If you come across any problems, please [create a ticket](https://github.com/recurser/pivotal-to-trello/issues) and I'll try to get it fixed as soon as possible.
-
-Contributing
-------------
-
-Once you've made your changes:
-
-1. [Fork](http://help.github.com/fork-a-repo/) pivotal-to-trello
-2. Create a topic branch - `git checkout -b my_branch`
-3. Push to your branch - `git push origin my_branch`
-4. Create a [Pull Request](http://help.github.com/pull-requests/) from your branch
-5. That's it!
-
-
-Author
+Authors & license
 ------
 
+*Original gem:*
+
 Dave Perrett :: hello@daveperrett.com :: [@daveperrett](http://twitter.com/daveperrett)
+License: [LICENSE.txt](https://github.com/kirs/pivotal-to-trello/blob/master/LICENSE.txt)
 
+*This fork:*
 
-Copyright
----------
+[Kir Shatrov](http://github.com/kirs)
 
-Copyright (c) 2014 Dave Perrett. See [License](https://github.com/recurser/jquery-i18n/blob/master/LICENSE) for details.
